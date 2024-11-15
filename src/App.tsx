@@ -1,30 +1,45 @@
-import "./App.css";
-import Sample from "./Sample";
-import styles from "./Button.module.css";
+import "./index.css";
+import { Link, Outlet } from "react-router-dom";
 
 export default function App() {
-  const userData = {
-    name: "John Doe",
-    age: 30,
-  };
-
   return (
-    <div
-      style={{
-        fontSize: "1.5em",
-        padding: "1em",
-        border: "1px solid black",
-        borderRadius: "8px",
-      }}
-    >
-      <button className={styles.button}>Test</button>
-      <div>
-        <img src="/vite.svg" alt="logo" className="logo" />
-      </div>
-      App
-      <div>
-        <Sample name={userData.name} age={userData.age}/>
-      </div>
+    <div className="container">
+      <header className="header">
+        <Link to="/">React Lesson</Link>
+        <span>By Abbas</span>
+      </header>
+
+      <main className="main-content">
+        <aside className="sidebar">
+          <nav>
+            <ul className="nav-list">
+              <li>
+                <Link to="/home" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/learn" className="nav-link">
+                  Learning
+                </Link>
+              </li>
+              <li>
+                <Link to="/challenges" className="nav-link">
+                  Challenges
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <div className="content">
+          <Outlet />
+        </div>
+      </main>
+
+      <footer className="footer">
+        {new Date().getFullYear()} &copy; React Lesson
+      </footer>
     </div>
   );
 }
