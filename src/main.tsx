@@ -2,13 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Challenges from "./challenges/Challenges.tsx";
 import MemoryGame from "./challenges/MemoryGame/solution/MemoryGame.solution.tsx";
 import Learning from "./learning/Learning.tsx";
 import UseStateExample from "./learning/UseState/UseStateExample.tsx";
 import UseEffectExample from "./learning/UseEffect/UseEffectExample.tsx";
 import Home from "./home/Home.tsx";
+import { SidebarProvider } from "./components/ui/sidebar.tsx";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <SidebarProvider>
+      <RouterProvider router={router} />
+    </SidebarProvider>
   </StrictMode>,
 );

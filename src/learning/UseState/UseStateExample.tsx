@@ -1,3 +1,5 @@
+import Code from "@/components/shiki";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 export default function UseStateExample() {
@@ -12,42 +14,19 @@ export default function UseStateExample() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        gap: "1rem",
-      }}
-    >
-      <div style={{ fontSize: "2rem" }}>Counter State: {counter}</div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "row",
-          gap: "1rem",
-        }}
-      >
-        <button className="button-primary" onClick={handleDecrement}>
+    <div className="flex flex-col items-center gap-4">
+      <div className="text-3xl font-bold">{counter}</div>
+      <div className="flex gap-2">
+        <Button size="sm" variant="destructive" onClick={handleDecrement}>
           Decrement
-        </button>
-        <button className="button-primary" onClick={handleIncrement}>
+        </Button>
+        <Button size="sm" onClick={handleIncrement}>
           Increment
-        </button>
+        </Button>
       </div>
 
-      <pre
-        style={{
-          whiteSpace: "pre-wrap",
-          border: "1px solid #ccc",
-          borderRadius: "5px",
-          padding: "10px",
-        }}
-      >
-        {`  const [counter, setCounter] = useState(0);
+      <Code
+        code={`const [counter, setCounter] = useState(0);
 
   const handleIncrement = () => {
     setCounter(counter + 1);
@@ -57,7 +36,7 @@ export default function UseStateExample() {
     setCounter(counter - 1);
   };
 `}
-      </pre>
+      />
     </div>
   );
 }

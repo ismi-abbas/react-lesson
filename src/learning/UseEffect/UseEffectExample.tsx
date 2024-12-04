@@ -1,4 +1,16 @@
+import Code from "@/components/shiki";
 import { useEffect, useState } from "react";
+
+const useEffectCode: string = `  const [time, setTime] = useState(new Date());
+  const [rerenderCount, setRerenderCount] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+      setRerenderCount((prevCount) => prevCount + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);`;
 
 export default function UseEffectExample() {
   const [time, setTime] = useState(new Date());
@@ -13,37 +25,20 @@ export default function UseEffectExample() {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        gap: "1rem",
-      }}
-    >
-      <h2>useEffect Sample</h2>
-      <div style={{ border: "1px solid #ccc", padding: "10px" }}>
-        <div>Current Time: {time.toLocaleTimeString()}</div>
-        <div>Rerender Count: {rerenderCount}</div>
+    <div className="flex flex-col items-center gap-4 p-4">
+      <h2 className="text-2xl font-bold">useEffect Sample</h2>
+      <div className="bg-white p-4 rounded-md shadow-md">
+        <div className="flex items-center gap-2">
+          <div className="text-lg">Current Time:</div>
+          <div className="text-lg font-bold">{time.toLocaleTimeString()}</div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="text-lg">Rerender Count:</div>
+          <div className="text-lg font-bold">{rerenderCount}</div>
+        </div>
       </div>
 
-      <pre
-        style={{
-          whiteSpace: "pre-wrap",
-          border: "1px solid #ccc",
-          borderRadius: "5px",
-          padding: "10px",
-        }}
-      >
-        {`  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-      setRerenderCount((prevCount) => prevCount + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);`}
-      </pre>
+      <Code code={useEffectCode} />
     </div>
   );
 }
