@@ -32,15 +32,15 @@ const initialState: TasksState = {
   nextId: 3,
 };
 
-function tasksReducer(state: TasksState, action: TaskAction) {
-  switch (action.type) {
+function tasksReducer(state: TasksState, payload: TaskAction) {
+  switch (payload.type) {
     case "added": {
       return {
         tasks: [
           ...state.tasks,
           {
             id: state.nextId,
-            text: action.text,
+            text: payload.text,
             done: false,
           },
         ],
@@ -51,8 +51,8 @@ function tasksReducer(state: TasksState, action: TaskAction) {
       return {
         ...state,
         tasks: state.tasks.map((t) => {
-          if (t.id === action.task.id) {
-            return action.task;
+          if (t.id === payload.task.id) {
+            return payload.task;
           } else {
             return t;
           }
@@ -62,11 +62,11 @@ function tasksReducer(state: TasksState, action: TaskAction) {
     case "deleted": {
       return {
         ...state,
-        tasks: state.tasks.filter((t) => t.id !== action.id),
+        tasks: state.tasks.filter((t) => t.id !== payload.id),
       };
     }
     default: {
-      throw Error("Unknown action: " + action);
+      throw Error("Unknown action: " + payload);
     }
   }
 }

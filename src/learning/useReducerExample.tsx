@@ -140,7 +140,10 @@ export default function SimpleReducer() {
   );
 }
 
-function advReducer(state: any, action: "increment" | "decrement" | "reset") {
+function advReducer(
+  state: number,
+  action: "increment" | "decrement" | "reset",
+) {
   switch (action) {
     case "increment":
       return state + 1;
@@ -159,6 +162,7 @@ function AdvancedReducer() {
   const handleIncrement = () => dispatch("increment");
   const handleDecrement = () => dispatch("decrement");
   const handleReset = () => dispatch("reset");
+
   return (
     <div>
       <Code
