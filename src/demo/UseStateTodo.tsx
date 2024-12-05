@@ -39,9 +39,12 @@ export default function UseStateTodo() {
           />
 
           <Button
-            onClick={() =>
-              setTodos((prev) => [...prev, { ...newTodo, id: prev.length + 1 }])
-            }
+            onClick={() => {
+              setTodos((prev) => [
+                ...prev,
+                { ...newTodo, id: prev.length + 1 },
+              ]);
+            }}
           >
             Add
           </Button>

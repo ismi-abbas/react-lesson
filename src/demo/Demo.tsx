@@ -6,6 +6,10 @@ const exampleNav = [
     name: "useState Todo Example",
     link: "/examples/use-state-todo",
   },
+  {
+    name: "Context With Reducer",
+    link: "/examples/context-with-reducer",
+  },
 ];
 
 export default function Demo() {

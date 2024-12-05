@@ -12,6 +12,8 @@ import Home from "./home/Home.tsx";
 import UseReducerExample from "./learning/useReducerExample.tsx";
 import UseStateTodo from "./demo/UseStateTodo.tsx";
 import Demo from "./demo/Demo.tsx";
+import ContextWithReducer from "./demo/ContextWithReducer/ContextWithReducer.tsx";
+import { TaskProvider } from "./demo/ContextWithReducer/TaskContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,10 @@ const router = createBrowserRouter([
             path: "/examples/use-state-todo",
             element: <UseStateTodo />,
           },
+          {
+            path: "/examples/context-with-reducer",
+            element: <ContextWithReducer />,
+          },
         ],
       },
       {
@@ -77,6 +83,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <TaskProvider>
+      <RouterProvider router={router} />
+    </TaskProvider>
   </StrictMode>,
 );
