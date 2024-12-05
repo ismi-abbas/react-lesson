@@ -27,7 +27,7 @@ export default function App() {
                   to="/home"
                   className={cn(
                     "text-sm font-medium hover:bg-primary hover:text-primary-foreground rounded-md px-3 py-2 transition-colors",
-                    location.pathname === "/home"
+                    location.pathname.includes("/home")
                       ? "bg-primary text-primary-foreground"
                       : "",
                   )}
@@ -38,14 +38,25 @@ export default function App() {
                   to="/learn"
                   className={cn(
                     "text-sm font-medium hover:bg-primary hover:text-primary-foreground rounded-md px-3 py-2 transition-colors",
-                    location.pathname === "/learn"
+                    location.pathname.includes("/learn")
                       ? "bg-primary text-primary-foreground"
                       : "",
                   )}
                 >
-                  Learning
+                  Learn
                 </Link>
                 <Link
+                  to="/examples"
+                  className={cn(
+                    "text-sm font-medium hover:bg-primary hover:text-primary-foreground rounded-md px-3 py-2 transition-colors",
+                    location.pathname.includes("/examples")
+                      ? "bg-primary text-primary-foreground"
+                      : "",
+                  )}
+                >
+                  Examples
+                </Link>
+                {/* <Link
                   to="/challenges"
                   className={cn(
                     "text-sm font-medium hover:bg-primary hover:text-primary-foreground rounded-md px-3 py-2 transition-colors",
@@ -55,7 +66,7 @@ export default function App() {
                   )}
                 >
                   Challenges
-                </Link>
+                </Link> */}
               </div>
             </div>
           </nav>
@@ -66,13 +77,13 @@ export default function App() {
         </main>
       </div>
 
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+      <footer className="border-t flex items-center justify-center">
+        <div className="flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
               Built by{" "}
               <a
-                href="#"
+                href="https://ismiabbas.xyz"
                 target="_blank"
                 rel="noreferrer"
                 className="font-medium underline underline-offset-4"

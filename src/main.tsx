@@ -6,10 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Challenges from "./challenges/Challenges.tsx";
 import MemoryGame from "./challenges/MemoryGame/solution/MemoryGame.solution.tsx";
 import Learning from "./learning/Learning.tsx";
-import UseStateExample from "./learning/UseState/UseStateExample.tsx";
-import UseEffectExample from "./learning/UseEffect/UseEffectExample.tsx";
+import UseStateExample from "./learning/UseStateExample.tsx";
+import UseEffectExample from "./learning/UseEffectExample.tsx";
 import Home from "./home/Home.tsx";
-import UseReducerExample from "./learning/useReducer/useReducerExample.tsx";
+import UseReducerExample from "./learning/useReducerExample.tsx";
+import UseStateTodo from "./demo/UseStateTodo.tsx";
+import Demo from "./demo/Demo.tsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,16 @@ const router = createBrowserRouter([
           {
             path: "/learn/useReducer",
             element: <UseReducerExample />,
+          },
+        ],
+      },
+      {
+        path: "/examples",
+        element: <Demo />,
+        children: [
+          {
+            path: "/examples/use-state-todo",
+            element: <UseStateTodo />,
           },
         ],
       },
