@@ -9,7 +9,7 @@ import Learning from "./learning/Learning.tsx";
 import UseStateExample from "./learning/UseState/UseStateExample.tsx";
 import UseEffectExample from "./learning/UseEffect/UseEffectExample.tsx";
 import Home from "./home/Home.tsx";
-import { SidebarProvider } from "./components/ui/sidebar.tsx";
+import UseReducerExample from "./learning/useReducer/useReducerExample.tsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +43,10 @@ const router = createBrowserRouter([
             path: "/learn/useEffect",
             element: <UseEffectExample />,
           },
+          {
+            path: "/learn/useReducer",
+            element: <UseReducerExample />,
+          },
         ],
       },
       {
@@ -61,8 +65,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <SidebarProvider>
-      <RouterProvider router={router} />
-    </SidebarProvider>
+    <RouterProvider router={router} />
   </StrictMode>,
 );

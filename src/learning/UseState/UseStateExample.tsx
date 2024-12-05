@@ -1,4 +1,4 @@
-import Code from "@/components/shiki";
+import Code from "@/components/code";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -34,8 +34,7 @@ export default function UseStateExample() {
 
   const handleDecrement = () => {
     setCounter(counter - 1);
-  };
-`}
+  };`}
       />
     </div>
   );

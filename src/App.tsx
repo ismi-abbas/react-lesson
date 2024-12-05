@@ -18,15 +18,15 @@ export default function App() {
         </div>
       </header>
 
-      <div className="container flex flex-1 items-start md:flex-row md:gap-6 lg:gap-10">
-        <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 overflow-y-auto border-r md:sticky md:flex md:flex-col md:w-[220px] lg:w-[240px]">
+      <div className="flex flex-1 relative items-start">
+        <aside className="fixed top-14 hidden w-full shrink-0 overflow-y-auto border-r md:sticky md:flex md:flex-col md:w-[220px] lg:w-[240px]">
           <nav className="relative px-4 py-6 lg:px-6">
             <div className="space-y-4">
               <div className="flex flex-col space-y-2">
                 <Link
                   to="/home"
                   className={cn(
-                    "text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md px-3 py-2 transition-colors",
+                    "text-sm font-medium hover:bg-primary hover:text-primary-foreground rounded-md px-3 py-2 transition-colors",
                     location.pathname === "/home"
                       ? "bg-primary text-primary-foreground"
                       : "",
@@ -37,7 +37,7 @@ export default function App() {
                 <Link
                   to="/learn"
                   className={cn(
-                    "text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md px-3 py-2 transition-colors",
+                    "text-sm font-medium hover:bg-primary hover:text-primary-foreground rounded-md px-3 py-2 transition-colors",
                     location.pathname === "/learn"
                       ? "bg-primary text-primary-foreground"
                       : "",
@@ -48,7 +48,7 @@ export default function App() {
                 <Link
                   to="/challenges"
                   className={cn(
-                    "text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md px-3 py-2 transition-colors",
+                    "text-sm font-medium hover:bg-primary hover:text-primary-foreground rounded-md px-3 py-2 transition-colors",
                     location.pathname === "/challenges"
                       ? "bg-primary text-primary-foreground"
                       : "",
@@ -61,10 +61,8 @@ export default function App() {
           </nav>
         </aside>
 
-        <main className="flex w-full flex-col overflow-hidden">
-          <div className="mx-auto w-full min-w-0">
-            <Outlet />
-          </div>
+        <main className="flex w-full flex-col overflow-hidden flex-1">
+          <Outlet />
         </main>
       </div>
 

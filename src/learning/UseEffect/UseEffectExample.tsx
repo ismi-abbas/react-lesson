@@ -1,4 +1,4 @@
-import Code from "@/components/shiki";
+import Code from "@/components/code";
 import { useEffect, useState } from "react";
 
 const useEffectCode: string = `  const [time, setTime] = useState(new Date());
